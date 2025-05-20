@@ -16,7 +16,7 @@ exchange = ccxt.binanceus({
     "secret": config.BINANCE_SECRET_KEY
 })
 
-def tr(data):
+def tr(data:pd.DataFrame):
     data['previous_close'] = data['close'].shift(1)
     data['high-low'] = abs(data['high'] - data['low'])
     data['high-pc'] = abs(data['high'] - data['previous_close'])
